@@ -7,14 +7,15 @@ const db = monk(url);
 let Dorm = db.get('projectxmls')
 
 
-router.get("/search", (req, res, next) => {
+router.get("/all", (req, res, next) => {
   Dorm.find({},(err,docs)=>{
-    res.send(docs)
+    res.render("dorm.ejs",{data:docs})
   })
 });
 // แบ่งเวลาค้นหาโซนโซนกัน
-router.get("/zone", (req, res, next) => {
-  Dorm.find({ zone: "เมือง" },(err,docs)=>{
+router.get("/zone/:id", (req, res, next) => {
+  const _id = req.params.id
+  Dorm.find({ zone: _id},(err,docs)=>{
     res.send(docs)
   })
 });
