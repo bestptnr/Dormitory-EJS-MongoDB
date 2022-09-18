@@ -9,7 +9,14 @@ let Dorm = db.get('projectxmls')
 
 router.get("/all", (req, res, next) => {
   Dorm.find({},(err,docs)=>{
+    if(err) throw err;
+    let address = ""
+    // docs.forEach(element => {
+    //   console.log(element.address.number)
+    // });
     res.render("dorm.ejs",{data:docs})
+    // res.send(docs)
+ 
   })
 });
 // แบ่งเวลาค้นหาโซนโซนกัน

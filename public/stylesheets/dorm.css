@@ -1,3 +1,35 @@
-.container{
-    background-color: red;
+
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Kanit&display=swap');
+*{
+    font-family: 'Kanit', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+background-color: #F9F8F6;   
+}
+.row{
+    background-color: white;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.id:hover .box{
+    color: black;
+
+    background-color: #fff5c3a7;
+}
+.id:hover .box-2{
+    background:transparent;
+}
+@media screen and (max-width:992px) {
+    .facilities{
+        display: none;
+    }
+}
+i{
+    font-size: 1rem;
 }
