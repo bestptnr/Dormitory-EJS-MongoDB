@@ -10,12 +10,7 @@ let Dorm = db.get('projectxmls')
 router.get("/all", (req, res, next) => {
   Dorm.find({},(err,docs)=>{
     if(err) throw err;
-    let address = ""
-    // docs.forEach(element => {
-    //   console.log(element.address.number)
-    // });
     res.render("dorm.ejs",{data:docs})
-    // res.send(docs)
  
   })
 });
@@ -29,8 +24,16 @@ router.get("/zone/:id", (req, res, next) => {
 // ค้นหาเวลากดจาก id
 router.get("/search/:id", (req, res, next) => {
   const paramid = req.params.id;
+  let data;
   Dorm.findOne({_id:paramid},(err,docs)=>{
-    res.send(docs)
+    if(err) throw err;
+    data = docs
+    Dorm.find({},(err,docs)=>{
+      console.log(data)
+      if(err) throw err;
+      res.render("information",{data:data ,recommend:docs})
+   
+    })
   })
 
 });

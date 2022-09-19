@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    <script src="https://kit.fontawesome.com/6484fc6e0a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/dorm.css" />
+    <link rel="stylesheet" href="/stylesheets/information.css" />
+</head>
+
+<body>
+    <% include navbar %>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-sm-12 col-lg-12 col-xl-8" style="padding: 3rem">
+                    <div class="row" style="background-color: white">
+                        <h4 style="padding: 1rem; font-size: 2rem">
+                            <%=data.name%>
+                        </h4>
+                        <div>
+                            <div class="pre">
+                                <!-- <a onclick="this.parentElement.style.display='none'" class="fa-sharp fa-solid fa-xmark"></a> -->
+                                <img id="p" src="/image/<%=data._id %>/<%=data['images']['img'][0] %>" alt="" />
+                            </div>
+                            <div class="images">
+                                <% data["images"]["img"].forEach(item=>{ %>
+
+                                    <img onclick="fun(this)" src="/image/<%=data._id %>/<%=item %>" alt="" />
+                                    <% }) %>
+                            </div>
+                        </div>
+
+                        <p style="margin-top: 3rem">ช่องทางติดต่อ</p>
+                        <div class="row" style="margin:auto;">
+                            <div class="col">
+                                <p><i class="bi bi-envelope-heart"></i> email : <%=data.contacts.email%></p>
+                                <p><i class="bi bi-facebook" style="color: blue;"></i> facebook : <a href="<%=data.contacts.facebook%>"><%=data.contacts.facebook%></a>  </p>
+                                <p><i class="bi bi-line" style="color:green"></i> Line <%=data.contacts.line%></p>
+                            </div>
+                            <div class="col">
+                                <% data["contacts"]["phones"].forEach(item=>{ %>
+                                <p><i class="bi bi-telephone" style="color:green" ></i> <%=item%></p>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <p>รายละเอียด</p>
+                        <div class="row"  style="margin:auto;">
+                            <div class="col-sm-12 col-lg-12 col-xl-7">
+                                <p>
+                                    <%=data.detail%>
+                                </p>
+                            </div>
+                            <div class="col-sm-12 col-lg-12 col-xl-5"
+                                style="background-color: rgb(228, 228, 228);margin-left:auto;">
+                                <div class="row">
+                                    <hr />
+                                    <div class="col-8 col-sm-8 col-lg-10 col-xl-8">
+                                        <p>รายเดือน</p>
+                                    </div>
+                                    <div class="col-4 col-sm-4 col-lg-2 col-xl-4">
+                                        <p>4,500 บาท</p>
+                                    </div>
+                                    <hr />
+                                    <div class="col-8 col-sm-8 col-lg-10 col-xl-8">
+                                        <p>รายเดือน</p>
+                                    </div>
+                                    <div class="col-4 col-sm-4 col-lg-2 col-xl-4">
+                                        <p>4,500 บาท</p>
+                                    </div>
+                                    <hr />
+                                    <div class="col-8 col-sm-8 col-lg-10 col-xl-8">
+                                        <p>รายเดือน</p>
+                                    </div>
+                                    <div class="col-4 col-sm-4 col-lg-2 col-xl-4">
+                                        <p>4,500 บาท</p>
+                                    </div>
+                                    <hr />
+                                    <div class="col-8 col-sm-8 col-lg-10 col-xl-8">
+                                        <p>รายเดือน</p>
+                                    </div>
+                                    <div class="col-4 col-sm-4 col-lg-2 col-xl-4">
+                                        <p>4,500 บาท</p>
+                                    </div>
+                                    <hr />
+                                    <div class="col-8 col-sm-8 col-lg-10 col-xl-8">
+                                        <p>รายเดือน</p>
+                                    </div>
+                                    <div class="col-4 col-sm-4 col-lg-2 col-xl-4">
+                                        <p>4,500 บาท</p>
+                                    </div>
+                                    <hr />
+                                    <div class="col-8 col-sm-8 col-lg-10 col-xl-8">
+                                        <p>รายเดือน</p>
+                                    </div>
+                                    <div class="col-4 col-sm-4 col-lg-2 col-xl-4">
+                                        <p>4,500 บาท</p>
+                                    </div>
+                                </div>
+                            
+                               
+                            </div>
+                        </div>
+                        <p class="text-center" style="margin-top: 3rem">
+                            สิ่งอำนวยความสะดวก
+                        </p>
+
+                        <div class="row">
+                            <% data.facilities.private.forEach(item=>{ %> <%
+                                if(item.name !="เตียงเดี่ยว" || item.name !="เตียงคู๋" ){
+                                %>
+                                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3" style="padding-left: 10%;">
+                                  <p class="opt" >
+                                    <% if(item.hasornot=='has' ){ %>
+                                    <i class="fa-solid fa-check text-success"></i>
+                                    <%= item.name %> <% } else { %>
+                                    <i class="fa-sharp fa-solid fa-xmark text-danger"></i>
+                                    <%= item.name %> <% } %>
+                                  </p>
+                                </div>
+                                <% } %> <% }) %>
+                        </div>
+                        <p class="text-center" style="margin-top: 3rem">
+                            สิ่งอำนวยความสะดวกส่วนกลาง
+                        </p>
+                        <div class="row">
+                            <% data.facilities.public.forEach(item=>{ %> <%
+                                if(item.name !="เตียงเดี่ยว" || item.name !="เตียงคู๋" ){
+                                %>
+                                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3" style="padding-left: 10%;">
+                                  <p class="opt" style="font-size: 0.9rem;" >
+                                    <% if(item.hasornot=='has' ){ %>
+                                    <i class="fa-solid fa-check text-success"></i>
+                                    <%= item.name %> <% } else { %>
+                                    <i class="fa-sharp fa-solid fa-xmark text-danger"></i>
+                                    <%= item.name %> <% } %>
+                                  </p>
+                                </div>
+                                <% } %> <% }) %>
+                        </div>
+                        <p class="text-center" style="margin-top: 3rem">ที่อยู่หอพัก</p>
+                        <p class="text-center">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </p>
+                        <p class="text-center" style="margin-top: 3rem">
+                            สถานที่ใกล้เคียง
+                        </p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><b>สถานศึกษา</b></li>
+                            <p style="margin-left: 1.5rem">ม.ขอนแก่น</p>
+                            <li class="list-group-item"><b>ถนน/ซอยใกล้เคียง</b></li>
+                            <p style="margin-left: 1.5rem">กังสดาล</p>
+                            <li class="list-group-item"><b>ร้านค้า</b></li>
+                            <p style="margin-left: 1.5rem">เซเว่น</p>
+                        </ul>
+                        <p class="text-center" style="margin-top: 3rem">กฎหอพัก</p>
+                        <p class="text-center">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </p>
+                        <p class="text-center" style="margin-top: 3rem;font-size:1.5rem">แผนที่</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=<%=data.map %>" width="100%" height="450"
+                            style="display:block;padding-left:30px;" allowfullscreen="" loading="lazy" class="pb-5"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+          
+            <div class="col-sm-12 col-lg-12 col-xl-4" style="padding: 3rem">
+
+                <div class="row sticky-top">
+                    <div class="col-lg-12 box">
+                        <h4 style="margin-top: 2rem">
+                            หอพักแนะนำ
+                            <i class="bi bi-star-fill" style="color: #ffc107"></i>
+                        </h4>
+                        <% recommend.forEach(element=>{ %>
+                            <a href="<%=element._id %>" class="id" style="background-color: white">
+                                <div class="row border mt-3 box" style="padding: 1rem; font-size: 0.8rem">
+                                    <div class="col-md-4 col-lg-4">
+                                        <img src="/image/<%=element._id %>/<%=element.images.img[1] %>"
+                                            class="img-thumbnail" />
+                                    </div>
+                                    <div class="col-md-8 col-lg-8">
+                                        <h5>
+                                            <%=element.name %>
+                                        </h5>
+                                        <p class="opt" style="color: grey">
+                                            ที่อยู่ <%=element.address.number%>
+                                                <%=element.address.novillage%>
+                                                    <%=element.address.namevillage%>
+                                                        <%=element.address.subdistrict%>
+                                                            <%=element.address.district%>
+                                                                <%=element.address.province%>
+                                                                    <%=element.address.zipcode%>
+                                        </p>
+                                        <h5 style="font-size: 1rem">
+                                            ราคา <%=element.prices.monthly%> บาท
+                                        </h5>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <% })%>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        <% include footer %>
+            <script>
+                let p = document.getElementById("p");
+                const fun = (image) => {
+                    p.src = image.src;
+                    p.parentElement.style.display = "block";
+                };
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+                crossorigin="anonymous"></script>
+</body>
+
+</html>
