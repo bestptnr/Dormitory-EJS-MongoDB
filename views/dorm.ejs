@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>โซนทั้งหมด</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -22,15 +22,20 @@
                             <% data.forEach(element=>{ %>
                                 <a href="/search/<%=element._id %>" class="id">
                                     <div class="row border mt-3 p-2 box">
-                                        <div class="col-md-4 col-lg-4 " style="height: 100%;">
+                                        <div class="col-md-4 col-lg-4 align-self-center" >
                                             <img src='/image/<%=element._id %>/<%=element.images.img[1] %>' alt="img"
-                                                style="width: 100%;">
+                                                style="width:100%;" class="img-thumbnail">
                                         </div>
                                         <div class="col-md-8 col-lg-8">
-                                            <h4>
-                                                <%=element.name%>
-                                            </h4>
-                                            <p style="color: grey;">ที่อยู่ <%=element.address.number%>
+                                            <div class="d-flex justify-content-between align-items-center ">
+                                                <h4 class="name" style="color: #EB6E44;">
+                                                    <%=element.name%>
+                                                </h4>
+                                                <p class="zone">
+                                                   โซน<%=element.zone%>
+                                                </p>
+                                            </div>
+                                            <p style="color: grey;font-size:0.8rem;" class="opt">ที่อยู่ <%=element.address.number%>
                                                     <%=element.address.novillage%>
                                                         <%=element.address.namevillage%>
                                                             <%=element.address.subdistrict%>
@@ -38,25 +43,29 @@
                                                                     <%=element.address.province%>
                                                                         <%=element.address.zipcode%>
                                             </p>
-                                            <h5>ราคา <%=element.prices.monthly%>
+                                       
+                                            <h5 class="alert alert-warning">ราคา <%=element.prices.monthly%> บาท
                                             </h5>
-                               
+
                                             <div class="row box-2 facilities">
-                                                <p>สิ่งอำนวยความสะดวก</p>
+                                                <p style="margin-bottom:0.5rem;" class="opt">สิ่งอำนวยความสะดวก</p>
                                                 <% element.facilities.private.forEach(item=>{ %>
-                                                    <div class="col-lg-6 col-xl-4 ">
-                    
-                                                        <p class="opt">
-                                               
+                                                    <% if(item.name !="เตียงเดี่ยว" || item.name !="เตียงคู๋" ){ %>
+                                                        <div class="col-lg-6 col-xl-3 ">
+
+                                                            <p class="opt">
+
                                                                 <% if(item.hasornot=='has' ){ %>
-                                                                    <i class="fa-solid fa-check text-success"></i>             <%= item.name %>
-                                                                    <% } else { %>
-                                                                        <i class="bi bi-x-lg text-danger" style="font-weight: bolder;"></i>             <%= item.name %>
-                                                                        <% } %>
-                                                        </p>
-                                                    </div>
-                                                    <% }) %>
-                                
+                                                                    <i class="fa-solid fa-check text-success"></i>
+                                                                    <%= item.name %>
+                                                                        <% } else { %>
+                                                                            <i class="fa-sharp fa-solid fa-xmark text-danger"></i>
+                                                                            <%= item.name %>
+                                                                                <% } %>
+                                                            </p>
+                                                        </div>
+                                                    <% } %>
+                                                <% }) %>
                                             </div>
                                         </div>
                                     </div>
@@ -67,24 +76,36 @@
 
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-4" style="padding: 3rem;">
-                    <div class="row" style="background-color: white;">
-                        <div class="col-lg-12">
-                            <h4 style="margin-top: 2rem; margin-left: 1rem;">หอพักแนะนำ <i class="bi bi-star-fill"
-                                    style="color: #ffc107;"></i></h4>
-                            <div class="row" style="padding: 1rem;">
-                                <div class="col-lg-4"><img src="./bruno.PNG" class="img-fluid"></div>
-                                <div class="col-lg-8">
-                                    <h5>ชื่อหอพัก</h5>
-                                    <p>ที่อยู่หอพัก</p>
-                                    <p>ราคา</p>
+                <div class="col-sm-12 col-lg-12 col-xl-4 " style="padding: 3rem;">
+                    <div class="row sticky-top">
+                        <div class="row " style="background-color: white;">
+                            <div class="col-lg-12 ">
+                                <h4 style="margin-top: 2rem;">หอพักแนะนำ <i class="bi bi-star-fill "
+                                        style="color: #ffc107;"></i></h4>
+                                <% data.forEach(element=>{ %>
+                                <div class="row border mt-3 " style="padding: 1rem;font-size:0.8rem;">
+                                    <div class="col-md-4 col-lg-4"><img src='/image/<%=element._id %>/<%=element.images.img[1] %>'  class="img-thumbnail"></div>
+                                    <div class="col-md-8 col-lg-8">
+                                        <h5><%=element.name %></h5>
+                                        <p class="opt" style="color: grey">ที่อยู่ <%=element.address.number%>
+                                            <%=element.address.novillage%>
+                                            <%=element.address.namevillage%>
+                                            <%=element.address.subdistrict%>
+                                            <%=element.address.district%>
+                                            <%=element.address.province%>
+                                            <%=element.address.zipcode%></p>
+                                        <h5 style="font-size: 1rem;">ราคา <%=element.prices.monthly%> บาท</h5>
+                                    </div>
                                 </div>
+                                <% })%>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
+        </div>
+            <% include footer %>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
                 crossorigin="anonymous"></script>
