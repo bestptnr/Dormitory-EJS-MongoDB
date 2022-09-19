@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('dorm/all');
+  res.send('HELLO')
+  // res.redirect('dorm/all');
 });
 
 module.exports = router;
