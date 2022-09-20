@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/6484fc6e0a.js"
+      crossorigin="anonymous"
+    ></script>
+    \
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>หน้าหลัก</title>
+    <link rel="stylesheet" href="/stylesheets/dorm.css" />
+    <link rel="stylesheet" href="/stylesheets/homepage.css" />
+  </head>
+
+  <body>
+    <% include navbar %>
+
+    <div class="banner">
+      <img
+        src="/img_system/baner.jpg"
+        class="w-100 h-100"
+        alt="รูป banner"
+        style="object-fit: cotain"
+      />
+      <div class="bottom-left" style="display: none">Bottom Left</div>
+      <div class="top-left" style="display: none">Top Left</div>
+      <div class="top-right" style="display: none">Top Right</div>
+      <div class="bottom-right" style="display: none">Bottom Right</div>
+      <div class="centered">
+        สวัสดีทุก ๆ ท่าน ยินดีเข้าสู่เว็บไซต์หอพักของเรา <br />
+        เว็บของเรายินดีให้บริการทุก ๆ ท่านครับ
+      </div>
+    </div>
+    <div class="container container-me">
+      <div class="row mySilde">
+        <div class="owl-carousel">
+          <% data.forEach(element=>{ %>
+          <a href="search/<%=element._id %>">
+            <div class="item">
+              <div class="card">
+                <img
+                  src="/image/<%=element._id %>/<%=element.images.img[1]%>"
+                  alt=""
+                />
+              </div>
+            </div>
+          </a>
+          <% }) %>
+        </div>
+      </div>
+
+
+      <div class="row" style="padding: 2%">
+        <div>
+            โซนหลังมอ
+        </div>
+        <% data.forEach(element=>{ %>
+        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-2">
+          <div class="card" style="width: 100%">
+            <img src="./img3.avif" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">หอพัก 1</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up the
+                bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">รายละเอียด</a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+        <div>
+            โซนกังสดาล
+        </div>
+        <div>
+            โซนโคลัมโบ
+        </div>
+        <div>
+            โซนโนนม่วง
+        </div>
+        <div>
+            โซนในเมือง
+        </div>
+    </div>
+  
+    </div>
+    <% include footer %>
+
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--includ cdn files-->
+    <!-- jquery cdn -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- 1 -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- init carousel -->
+    <script>
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 3,
+          },
+          1000: {
+            items: 4,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

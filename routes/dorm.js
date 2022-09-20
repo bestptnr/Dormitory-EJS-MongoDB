@@ -10,7 +10,7 @@ let Dorm = db.get('projectxmls')
 router.get("/all", (req, res, next) => {
   Dorm.find({},(err,docs)=>{
     if(err) throw err;
-    res.render("dorm.ejs",{data:docs})
+    res.render("dorm.ejs",{data:docs,title:"all"})
  
   })
 });
@@ -31,7 +31,7 @@ router.get("/search/:id", (req, res, next) => {
     Dorm.find({},(err,docs)=>{
       console.log(data)
       if(err) throw err;
-      res.render("information",{data:data ,recommend:docs})
+      res.render("information",{data:data ,recommend:docs,title:data.zone})
    
     })
   })
@@ -48,6 +48,13 @@ router.post("/add", (req, res) => {
 
 });
 
+router.get("/main",(req,res)=>{
+  Dorm.find({},(err,docs)=>{
+    if(err) throw err;
+    res.render("homepage",{data:docs,title:"main"})
+ 
+  })
+})
 // put = update
 
 // delete
