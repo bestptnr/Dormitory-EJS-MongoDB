@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('dorm/all');
+  res.redirect('dorm/main');
 });
 
 module.exports = router;

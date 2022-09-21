@@ -28,13 +28,10 @@
         <div class="col-sm-12 col-lg-12 col-xl-8" style="padding: 3rem">
           <div class="row">
             <div class="col-lg-12">
-              <% if(data.length===0 ){ %>
-                    <div class="not">ไม่พบข้อมูลหอพักที่คุณค้นหา</div>
-              <% } %>
                 
               <% data.forEach(element=>{ %>
               <a
-                href="find/<%=element._id %>"
+                href="/dorm/find/<%=element._id %>"
                 class="id"
                 style="background-color: white"
               >
@@ -93,6 +90,19 @@
               <% })%>
             </div>
           </div>
+          <% if(data.length===0 ){ %>
+            <div class="not">ไม่พบข้อมูลหอพักที่คุณค้นหา</div>
+          <% }else{ %>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+             
+              <% for(let i = 1;i<=total;i++){ %>
+              <li class="page-item"><a class="page-link" href="/dorm/zone/<%=title %>/?page=<%=i %>"><%=i %></a></li>
+              <% } %>
+            
+            </ul>
+          </nav>
+        <% } %>
         </div>
         <div class="col-sm-12 col-lg-12 col-xl-4" style="padding: 3rem">
           <div class="row sticky-top">
@@ -104,7 +114,7 @@
                 </h4>
                 <% recommend.forEach(element=>{ %>
                 <a
-                  href="find/<%=element._id %>"
+                  href="/dorm/find/<%=element._id %>"
                   class="id"
                   style="background-color: white"
                 >

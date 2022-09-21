@@ -7,24 +7,30 @@ const db = monk(url);
 let Dorm = db.get('projectxmls')
 
 
-router.get("/all", (req, res, next) => {
-  Dorm.find({},{sort:{_id:-1}},(err,docs)=>{
+router.get("/all", async (req, res, next) => {
+  const page = parseInt(req.query.page) - 1 || 0;
+  const limit = 4;
+  const count = await Dorm.count({})
+  const total = Math.round(count/4)
+  await Dorm.find({},{limit : 4,skip:page*limit,sort:{_id:-1}}, (err,docs)=>{
     if(err) throw err;
-    res.render("dorm.ejs",{data:docs,title:"all"})
+    res.render("dorm.ejs",{data:docs,title:"all",page:page,total:total})
  
   })
 });
 // แบ่งเวลาค้นหาโซนโซนกัน
-router.get("/zone/:id", (req, res, next) => {
+router.get("/zone/:id", async (req, res, next) => {
   const _id = req.params.id
   let data;
-
-  Dorm.find({zone:_id},{sort:{_id:-1}},(err,docs)=>{
-    if(err) throw err;
+  const page = parseInt(req.query.page) - 1 || 0;
+  const limit = 4;
+  const count = await Dorm.count({zone:_id})
+  const total = Math.round(count/4)
+  const zone = await Dorm.find({zone:_id,},{limit : 4,skip:page*limit},(err,docs)=>{
     data = docs
-    Dorm.find({},(err,docs)=>{
+    Dorm.find({},{limit : 4},(err,docs)=>{
       if(err) throw err;
-      res.render("search",{data:data ,recommend:docs,title:_id})
+      res.render("search",{data:data ,recommend:docs,title:_id,page:page,total:total})
    
     })
   })
