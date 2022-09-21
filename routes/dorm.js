@@ -8,7 +8,7 @@ let Dorm = db.get('projectxmls')
 
 
 router.get("/all", (req, res, next) => {
-  Dorm.find({},(err,docs)=>{
+  Dorm.find({},{sort:{_id:-1}},(err,docs)=>{
     if(err) throw err;
     res.render("dorm.ejs",{data:docs,title:"all"})
  
@@ -17,12 +17,20 @@ router.get("/all", (req, res, next) => {
 // แบ่งเวลาค้นหาโซนโซนกัน
 router.get("/zone/:id", (req, res, next) => {
   const _id = req.params.id
-  Dorm.find({ zone: _id},(err,docs)=>{
-    res.send(docs)
+  let data;
+
+  Dorm.find({zone:_id},{sort:{_id:-1}},(err,docs)=>{
+    if(err) throw err;
+    data = docs
+    Dorm.find({},(err,docs)=>{
+      if(err) throw err;
+      res.render("search",{data:data ,recommend:docs,title:_id})
+   
+    })
   })
 });
 // ค้นหาเวลากดจาก id
-router.get("/search/:id", (req, res, next) => {
+router.get("/find/:id", (req, res, next) => {
   const paramid = req.params.id;
   let data;
   Dorm.findOne({_id:paramid},(err,docs)=>{
@@ -37,7 +45,25 @@ router.get("/search/:id", (req, res, next) => {
   })
 
 });
-
+router.get("/search",async (req,res)=>{
+  var id = req.query.search
+  var query = {
+    name: {
+      $regex: id,
+      $options: 'i'
+    }
+  };
+  await Dorm.find({},{sort:{_id:-1}},(err,docs)=>{
+    if(err) throw err;
+    data = docs
+    Dorm.find(query,{sort:{_id:-1}},(err,docs)=>{
+      if(err) throw err;
+       res.render("search",{data:docs ,recommend:data,title:"search"})
+   
+    })
+  })
+ 
+})
 // insert พวกข้อความเอา ข้อมูลจากฟอร์มมาใส่เอาแทน
 router.post("/add", (req, res) => {
   const check = req.body;
@@ -48,12 +74,29 @@ router.post("/add", (req, res) => {
 
 });
 
-router.get("/main",(req,res)=>{
-  Dorm.find({},(err,docs)=>{
+router.get("/main",async (req,res)=>{
+  let data=[];
+  await Dorm.find({zone:"กังสดาล"}, { limit : 4,sort:{_id:-1} },async (err,docs)=>{
     if(err) throw err;
-    res.render("homepage",{data:docs,title:"main"})
- 
-  })
+    data = [...docs]
+    await Dorm.find({zone:"หลังมอ"}, { limit : 4,sort:{_id:-1} },async (err,docs)=>{
+      if(err) throw err;
+      data = [...data,...docs]
+      await Dorm.find({zone:"เมือง"}, { limit : 4,sort:{_id:-1} },async (err,docs)=>{
+        if(err) throw err;
+        data = [...data,...docs]
+        await Dorm.find({zone:"โนนม่วง"}, { limit : 4,sort:{_id:-1} },async (err,docs)=>{
+          if(err) throw err;
+          data = [...data,...docs]
+          await Dorm.find({zone:"โคลัมโบ"}, { limit : 4,sort:{_id:-1} },async (err,docs)=>{
+            if(err) throw err;
+            data = [...data,...docs]
+            res.render("homepage",{data:data,title:"main"})
+           })
+          })
+        })
+      })
+    })
 })
 // put = update
 

@@ -45,36 +45,61 @@
         </li>
         <% } else{ %>
         <li class="nav-item">
-          <a class="nav-link" href="/dorm/all">โซนหลังมอ</a>
+          <a class="nav-link" href="/dorm/zone/หลังมอ">โซนหลังมอ</a>
         </li>
         <% } %> <% if(title=="กังสดาล"){ %>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/dorm/all"
+          <a class="nav-link active" aria-current="page" href="/dorm/zone/กังสดาล"
             >โซนกังสดาล</a
           >
         </li>
         <% } else{ %>
         <li class="nav-item">
-          <a class="nav-link" href="/dorm/all">โซนกังสดาล</a>
+          <a class="nav-link" href="/dorm/zone/กังสดาล">โซนกังสดาล</a>
         </li>
         <% } %>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">โซนโคลัมโบ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">โซนโนนม่วง</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">โซนในเมือง</a>
-        </li>
+         <% if(title=="โคลัมโบ"){ %>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/dorm/zone/โคลัมโบ"
+              >โซนโคลัมโบ</a
+            >
+          </li>
+          <% } else{ %>
+          <li class="nav-item">
+            <a class="nav-link" href="/dorm/zone/โคลัมโบ">โซนโคลัมโบ</a>
+          </li>
+          <% } %>
+          <% if(title=="โนนม่วง"){ %>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/dorm/zone/โนนม่วง"
+                >โซนโนนม่วง</a
+              >
+            </li>
+            <% } else{ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/dorm/zone/โนนม่วง">โซนโนนม่วง</a>
+            </li>
+            <% } %>
+            <% if(title=="เมือง"){ %>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/dorm/zone/เมือง"
+                  >โซนเมือง</a
+                >
+              </li>
+              <% } else{ %>
+              <li class="nav-item">
+                <a class="nav-link" href="/dorm/zone/เมือง">โซนเมือง</a>
+              </li>
+              <% } %>
       </ul>
-      <form class="d-flex" role="search">
+      <form class="d-flex" role="search" action="/dorm/search">
         <input
           class="form-control me-2"
           type="search"
           placeholder="Search"
           aria-label="Search"
+          name="search"
         />
         <button class="btn btn-outline-light" type="submit">Search</button>
       </form>

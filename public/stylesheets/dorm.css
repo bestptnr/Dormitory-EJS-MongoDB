@@ -46,6 +46,10 @@ footer,.mybgfooter{
     /* width: 50%;
     border: 0.5px solid black; */
 }
+.not{
+    font-size: 3rem;
+    text-align: center;
+}
 @media screen and (max-width:992px) {
     .facilities{
         display: none;
