@@ -106,6 +106,19 @@
                             </div>
                         </div>
                         <p class="text-center topic" style="margin-top: 3rem">
+                            รูปแบบสัญญา
+                        </p>
+                        <div class="row">
+                            <% data.contracts.contract.forEach(item=>{ %>     
+                                <div class="col" style="text-align:center;">
+                                  <li class="opt" style="font-size: 0.9rem;">
+                                    <%=item %>
+                                    
+                                  </li>
+                                </div>
+                             <% }) %>
+                        </div>
+                        <p class="text-center topic" style="margin-top: 3rem">
                             สิ่งอำนวยความสะดวก
                         </p>
 
