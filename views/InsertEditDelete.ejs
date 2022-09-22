@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>เพิ่มข้อมูลหอพัก</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    <script src="https://kit.fontawesome.com/6484fc6e0a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/dorm.css" />
+</head>
+
+<body>
+    <div class="container-fulid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color: #eb6e44;">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a href="/admin"
+                        class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <h1 class=" d-none d-sm-inline"><span style="color:#000000">Dorm</span>itory</h1>
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                        id="menu">
+                        <li class="nav-item">
+                            <a href="/admin" class="nav-link align-middle px-0" style="color:white">
+                                <i class="fs-4 bi-house"></i> <span
+                                    class="ms-1 d-none d-sm-inline">รายละเอียดหอพัก</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="nav-link px-0 align-middle" style="color:white">
+                                <i class="fs-4 bi-table"></i> <span
+                                    class="ms-1 d-none d-sm-inline">จัดการข้อมูลหอพัก</span></a>
+                        </li>
+                    </ul>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-11 col-md-9 col-xl-10 px-sm-2 px-0 mt-5">
+                <div class="row">
+                    <div class="">
+                        <h3 class="alert alert-success" style="width:100%;">เพิ่มข้อมูลหอพัก</h3>
+                        <form action="" class="form-control" >
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">ชื่อหอพัก</label>
+                                        <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="ตัวอย่าง หอใส่ใจใส่ไข่สองฟอง">
+                                    </div>
+                                    <div class="row ">
+                                        <label for="exampleFormControlInput1" class="form-label">ชื่อที่อยู่</label>
+                                        <div class="col-xl-3 mb-3">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="เลขที่">
+                                        </div>
+                                        <div class="col-xl-3 mb-3">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="หมู่ที่/ซอย">
+                                        </div>
+                                        <div class="col-xl-3 mb-3">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="ชื่อหมู่บ้าน/ถนน">
+                                        </div>
+                                        <div class="col-xl-3 mb-3">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="ตำบล">
+                                        </div>
+                                        <div class="col-xl-3 mb-3">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="อำเภอ">
+                                        </div>
+                                        <div class="col-xl-3 mb-3">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="จังหวัด">
+                                        </div>
+                                        <div class="col-xl-3 mb-3">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="รหัสไปรษณีย์">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">ช่องทางการติดต่อ</label>
+                                        <div class="col-xl-6">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="เบอร์โทรศัพท์หมายเลขที่ 1">
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="เบอร์โทรศัพท์หมายเลขที่ 2">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-xl-6">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="Email">
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="Facebook">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-xl-6">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="Line">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">สิ่งอำนวยความสะดวกในห้อง</label>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            แอร์
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            ลิฟต์
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            Wifi
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            มี TV
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            เครื่องทำน้ำอุ่น
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            คีย์การ์ด
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            พัดลม
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            ตู้เสื้อผ้า
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            เตียงเดี่ยว
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            เตียงคู่
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">สิ่งอำนวยความสะดวกส่วนกลาง</label>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            ที่จอดรถ
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            โรงยิม/ฟิตเนส
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            กล้องวงจรปิด
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            Wift ส่วนกลาง
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            ร้านซัก-รีดักผ้า
+                                        </div>
+                            
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">กฏหอพัก</label>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            ห้ามเลี้ยงสัตว์
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            ห้ามสูบบูหรี่
+                                        </div>
+                                  
+                            
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-xl-12 mb-3">
+                                            <label for="exampleFormControlInput1" class="form-label">โซนหอพัก</label>
+                                            <select class="form-select" aria-label="Default select example">
+                                            <option selected>เลือกโซนหอพัก</option>
+                                            <option value="หลังมอ">หลังมอ</option>
+                                            <option value="กังสดาล">กังสดาล</option>
+                                            <option value="โคลัมโบ">โคลัมโบ</option>
+                                            <option value="เมือง">เมือง</option>
+                                            <option value="โน่นม่วง">โน่นม่วง</option>
+                                          </select>
+                                        </div>
+                                        <div class="col-xl-12 mb-3">
+                                            <label for="exampleFormControlInput1" class="form-label">รายละเอียดหอพัก</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <label for="exampleFormControlInput1" class="form-label">Google map</label>
+                                            <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="1"
+                                            placeholder="ตัวอย่างเอามาจาก embed Google map : !1m18!1m12!1m3!1d15305.110166216142!2d102.8151889824985!3d16.4614784191227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31228b959372245d%3A0x724747576857b42d!2sThe%20Room%20Residence%20KKU!5e0!3m2!1sth!2sth!4v1663829208925!5m2!1sth!2sth"></inp>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="row mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">ราคา (ไม่ประสงค์ลงราคาส่วนไหนให้กรอก โทรสอบถาม)</label>
+                                        <div class="col-xl-6 mb-3">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="ราคาต่อเดือนเช่น 3,000-3,500">
+                                        </div>
+                                        <div class="col-xl-6 mb-3">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="ราคารายวัน"->
+                                        </div>
+                                        <div class="col-xl-6 mb-3">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="ราคาค่าน้ำต่อยูนิต">
+                                        </div>
+                                        <div class="col-xl-6 mb-3">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="ราคาค่าไฟต่อยูนิต">
+                                        </div>
+                                        <div class="col-xl-6 mb-3">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="ราคาค่าส่วนกลาง">
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="ราคาค่ามัดจำ">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-xl-12">
+                                            <label for="exampleFormControlInput1" class="form-label">รูปแบบสัญญา</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="ตัวอย่างการกรอก : 1 ปี,6 เดือน,...,...">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">สถานศึกษาใกล้เคียง</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">ถนนใกล้เคียง</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">ร้านสะดวกซื้อ/ห้างสรรพสินค้าใกล้เคียง</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">อัปโหลดไฟล์ (.png)</label>
+                                        <input class="form-control" type="file" id="formFile">
+                                    </div>
+                                
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">บันทึกข้อมูล</button>
+                        </form>
+                    </div>
+                    
+                </div>
+                <div>
+                        
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

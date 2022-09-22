@@ -74,15 +74,6 @@ router.get("/search",async (req,res)=>{
   })
  
 })
-// insert พวกข้อความเอา ข้อมูลจากฟอร์มมาใส่เอาแทน
-router.post("/add", (req, res) => {
-  const check = req.body;
-  if (!check) {
-    return res.send("ไม่เจอข้อมูล");
-  }
-
-
-});
 
 router.get("/main",async (req,res)=>{
   let data=[];
@@ -108,7 +99,5 @@ router.get("/main",async (req,res)=>{
       })
     })
 })
-// put = update
 
-// delete
 module.exports = router;

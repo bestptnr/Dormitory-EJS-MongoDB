@@ -1,55 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>จัดการข้อมูล</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
-    />
-    <script
-      src="https://kit.fontawesome.com/6484fc6e0a.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="./public/stylesheets/dorm.css" />
-  </head>
 
-  <body>
-    <div class="container-fulid">
-        <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color: #eb6e44;">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <h1 class=" d-none d-sm-inline"><span style="color:#000000">Dorm</span>itory</h1>
-                    </a>
-                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link align-middle px-0" style="color:white">
-                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">รายละเอียดหอพัก</span>
-                            </a>
-                        </li>
-                        
-                        <li>
-                            <a href="#" class="nav-link px-0 align-middle" style="color:white">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">จัดการข้อมูลหอพัก</span></a>
-                        </li>
-                    </ul>
-                    <hr>    
-                </div>
-            </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>จัดการข้อมูล</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+  <script src="https://kit.fontawesome.com/6484fc6e0a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/stylesheets/dorm.css" />
+</head>
+
+<body>
+  <div class="container-fulid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color: #eb6e44;">
+        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+          <a href="/admin" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <h1 class=" d-none d-sm-inline"><span style="color:#000000">Dorm</span>itory</h1>
+          </a>
+          <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+            <li class="nav-item">
+              <a href="/admin" class="nav-link align-middle px-0" style="color:white">
+                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">รายละเอียดหอพัก</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="nav-link px-0 align-middle" style="color:white">
+                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">จัดการข้อมูลหอพัก</span></a>
+            </li>
+          </ul>
+          <hr>
+        </div>
+      </div>
+      <div class="col-11 col-md-9 col-xl-10 px-sm-2 px-0 mt-5">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h3>รายละเอียดหอพัก</h3>
+            <a class="btn btn-success" href="/admin/insert">เพิ่มข้อมูลหอพัก <i class="bi bi-plus-circle-fill text-warning" ></i></a><br>
+            <form class="d-flex mt-4" role="search" action="/dorm/search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                name="search"
+              />
+            
+              <button class="btn btn-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+        <div>
+          <table class="table table-bordered mt-4 border-dark">
+              <tr>
+                <th>ชื่อหอพัก</th>
+                <th>ที่อยู่</th>
+                <th>โซน</th>
+                <th>ราคา</th>
+                <th></th>
+                <th></th>
+              </tr>
+              <% data.forEach(element=>{ %>
+                <tr>
+                  <td><%=element.name %></td>
+                  <td> <%=element.address.number%>
+                    <%=element.address.novillage%>
+                    <%=element.address.namevillage%>
+                    <%=element.address.subdistrict%>
+                    <%=element.address.district%>
+                    <%=element.address.province%> <%=element.address.zipcode%></td>
+                  <td><%=element.zone %></td>
+                  <td><%=element.prices.monthly %></td>
+                    <td><a href="/admin/edit/<%=element._id %>" class="btn btn-warning">แก้ไข</a></td>
+                    <td><a href="/admin/delete/<%=element._id %>" class="btn btn-danger">ลบ</a></td>
+                </tr>
+              <% }) %>
+          </table>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+             
+              <% for(let i = 1;i<=total;i++){ %>
+              <li class="page-item"><a class="page-link" href="?page=<%=i %>"><%=i %></a></li>
+              <% } %>
+            
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+      crossorigin="anonymous"></script>
+</body>
+
 </html>
