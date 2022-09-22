@@ -28,7 +28,7 @@ router.get("/zone/:id", async (req, res, next) => {
   const total = Math.round(count/4)
   const zone = await Dorm.find({zone:_id,},{limit : 4,skip:page*limit},(err,docs)=>{
     data = docs
-    Dorm.find({},{limit : 4},(err,docs)=>{
+    Dorm.find({},{limit : 4,sort:{_id:-1}},(err,docs)=>{
       if(err) throw err;
       res.render("search",{data:data ,recommend:docs,title:_id,page:page,total:total})
    
@@ -62,9 +62,13 @@ router.get("/search",async (req,res)=>{
   await Dorm.find({},{sort:{_id:-1}},(err,docs)=>{
     if(err) throw err;
     data = docs
-    Dorm.find(query,{sort:{_id:-1}},(err,docs)=>{
+    Dorm.find(query,{sort:{_id:-1}},async (err,docs)=>{
       if(err) throw err;
-       res.render("search",{data:docs ,recommend:data,title:"search"})
+      const page = parseInt(req.query.page) - 1 || 0;
+      const limit = 4;
+      const count = await Dorm.count(query,{sort:{_id:-1}})
+      const total = Math.round(count/4)
+       res.render("search",{data:docs ,recommend:data,title:"search",page:page,total:total})
    
     })
   })
