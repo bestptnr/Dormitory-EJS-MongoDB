@@ -36,13 +36,15 @@
                 style="background-color: white"
               >
                 <div class="row border mb-3 p-2 box">
-                  <div class="col-md-4 col-lg-4 align-self-center">
-                    <img
+                  <div class="col-md-4 col-lg-4 align-self-center" >
+                    <div class="pre">
+                      <img
                       src="/image/<%=element.images.img[1] %>"
                       alt="img"
                       style="width: 100%"
-                      class="img-thumbnail"
+                      class="img-thumbnail p"
                     />
+                    </div>
                   </div>
                   <div class="col-md-8 col-lg-8">
                     <div
@@ -97,7 +99,12 @@
             <ul class="pagination">
              
               <% for(let i = 1;i<=total;i++){ %>
-              <li class="page-item"><a class="page-link" href="/dorm/zone/<%=title %>/?page=<%=i %>"><%=i %></a></li>
+                <% if(title=="search"){ %>
+                <li class="page-item"><a class="page-link" href="/dorm/<%=title %>?search=<%=search %>&page=<%=i %>"><%=i %></a></li>
+              <% }else{ %>
+                <li class="page-item"><a class="page-link" href="/dorm/zone/<%=title %>/?page=<%=i %>"><%=i %></a></li>
+
+                <% } %>
               <% } %>
             
             </ul>
@@ -123,10 +130,14 @@
                     style="padding: 1rem; font-size: 0.8rem"
                   >
                     <div class="col-md-4 col-lg-4">
-                      <img
+                      <div class="pre2">
+                        <img
                         src="/image/<%=element.images.img[1] %>"
-                        class="img-thumbnail"
+                        alt="img"
+                        style="width: 100%"
+                        class="img-thumbnail p"
                       />
+                      </div>
                     </div>
                     <div class="col-md-8 col-lg-8">
                       <h5><%=element.name %></h5>

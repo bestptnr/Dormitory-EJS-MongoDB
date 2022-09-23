@@ -42,7 +42,7 @@ router.get("/find/:id", (req, res, next) => {
   Dorm.findOne({_id:paramid},(err,docs)=>{
     if(err) throw err;
     data = docs
-    Dorm.find({},(err,docs)=>{
+    Dorm.find({},{limit : 4},(err,docs)=>{
       console.log(data)
       if(err) throw err;
       res.render("information",{data:data ,recommend:docs,title:data.zone})
@@ -59,16 +59,19 @@ router.get("/search",async (req,res)=>{
       $options: 'i'
     }
   };
-  await Dorm.find({},{sort:{_id:-1}},(err,docs)=>{
+  const limit = 4;
+  const page = parseInt(req.query.page) - 1 || 0;
+
+  const count = await Dorm.count(query,{sort:{_id:-1}})
+  const total = Math.round(count/4)
+  await Dorm.find({},{limit : 4,sort:{_id:1}},(err,docs)=>{
     if(err) throw err;
     data = docs
-    Dorm.find(query,{sort:{_id:-1}},async (err,docs)=>{
+    Dorm.find(query,{limit : 4,skip:page*limit,sort:{_id:-1}},async (err,docs)=>{
       if(err) throw err;
       const page = parseInt(req.query.page) - 1 || 0;
-      const limit = 4;
-      const count = await Dorm.count(query,{sort:{_id:-1}})
-      const total = Math.round(count/4)
-       res.render("search",{data:docs ,recommend:data,title:"search",page:page,total:total})
+  
+       res.render("search",{data:docs ,recommend:data,title:"search",search:id ,page:page,total:total})
    
     })
   })
