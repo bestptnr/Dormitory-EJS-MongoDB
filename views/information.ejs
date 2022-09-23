@@ -25,12 +25,12 @@
                         <div>
                             <div class="pre">
                                 <!-- <a onclick="this.parentElement.style.display='none'" class="fa-sharp fa-solid fa-xmark"></a> -->
-                                <img id="p" src="/image/<%=data._id %>/<%=data['images']['img'][0] %>" alt="" />
+                                <img id="p" src="/image/<%=data['images']['img'][0] %>" alt="" />
                             </div>
                             <div class="images">
                                 <% data["images"]["img"].forEach(item=>{ %>
 
-                                    <img onclick="fun(this)" src="/image/<%=data._id %>/<%=item %>" alt="" />
+                                    <img onclick="fun(this)" src="/image/<%=item %>" alt="" />
                                     <% }) %>
                             </div>
                         </div>
