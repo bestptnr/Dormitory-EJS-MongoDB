@@ -76,7 +76,12 @@ footer,.mybgfooter{
     .facilities{
         display: none;
     }
-
+    .pre2{
+        height: 150px;
+    }
+    .title2{
+        margin-top: 10px;
+    }
     
 }
 @media screen and (max-width:576px) {
