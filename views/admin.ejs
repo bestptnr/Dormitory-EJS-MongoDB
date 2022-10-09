@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
   <script src="https://kit.fontawesome.com/6484fc6e0a.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/stylesheets/dorm.css" />
+  <link rel="icon" href="/image/logobrand.png" type="image/x-icon" sizes="30x30">
+
 </head>
 
 <body>
@@ -74,8 +76,13 @@
                     <%=element.address.province%> <%=element.address.zipcode%></td>
                   <td><%=element.zone %></td>
                   <td><%=element.prices.monthly %></td>
-                    <td><a href="/admin/edit/<%=element._id %>" class="btn btn-warning">แก้ไข</a></td>
-                    <td><a href="/admin/delete/<%=element._id %>" class="btn btn-danger">ลบ</a></td>
+                    <td>
+                      <form action="admin/edit" method="post">
+                        <input type="hidden" name="edit_id" value="<%=element._id %>">
+                        <button type="submit" class="btn btn-warning">แก้ไข</button>
+                      </form>
+                    </td>
+                    <td><a href="/admin/delete/<%=element._id %>" class="btn btn-danger" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่ ?')">ลบ</a></td>
                 </tr>
               <% }) %>
           </table>

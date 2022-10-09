@@ -11,12 +11,14 @@
     <script src="https://kit.fontawesome.com/6484fc6e0a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/stylesheets/dorm.css" />
     <link rel="stylesheet" href="/stylesheets/information.css" />
+    <link rel="icon" href="/image/logobrand.png" type="image/x-icon" sizes="30x30">
+
 </head>
 
 <body>
     <% include navbar %>
         <div class="container">
-            <div class="row mt-5">
+            <div class="row mt-5 pt-5">
                 <div class="col-sm-12 col-lg-12 col-xl-8" style="padding: 3rem">
                     <div class="row" style="background-color: white">
                         <h4 style="padding: 1rem; font-size: 2rem">
@@ -124,7 +126,7 @@
 
                         <div class="row">
                             <% data.facilities.private.forEach(item=>{ %> <%
-                                if(item.name !="เตียงเดี่ยว" || item.name !="เตียงคู๋" ){
+                                if(item.name !="เตียงเดี่ยว" || item.name !="เตียงคู่" ){
                                 %>
                                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3" style="padding-left: 10%;">
                                   <p class="opt" style="font-size: 0.9rem;">
