@@ -24,7 +24,6 @@ const upload = multer({
 
 router.get("/", async (req, res) => {
   const queryData = req.query.search;
-
   if (queryData) {
     var query = {
       name: {
@@ -191,6 +190,7 @@ router.post("/add_data", upload.array("image", 4), function (req, res, next) {
   } else {
     var has_pet = "has";
   }
+  req.body.nearby_edu_name1
 
   Dorm.insert(
     {

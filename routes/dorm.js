@@ -13,7 +13,6 @@ router.get("/all", async (req, res, next) => {
   const limit = 4;
   const count = await Dorm.count({})
   const total = Math.round(count/4)
-
   if(req.query.sort=='asc'){
     let sort = req.query.sort
     await Dorm.find({},{limit : 4,skip:page*limit,sort:{prices:1}}, (err,docs)=>{
@@ -36,7 +35,6 @@ router.get("/all", async (req, res, next) => {
    
     })
   }
-
 });
 // แบ่งเวลาค้นหาโซนโซนกัน
 router.get("/zone/:id", async (req, res, next) => {
@@ -54,7 +52,6 @@ router.get("/zone/:id", async (req, res, next) => {
       data = docs
       Dorm.find({},{limit : 4,sort:{_id:-1}},(err,docs)=>{
         if(err) throw err;
-        // res.send(docs)
         res.render("search",{data:data ,recommend:docs,title:_id,page:page,total:total,sort:sort})
      
       })
@@ -65,7 +62,6 @@ router.get("/zone/:id", async (req, res, next) => {
       data = docs
       Dorm.find({},{limit : 4,sort:{_id:-1}},(err,docs)=>{
         if(err) throw err;
-        // res.send(docs)
         res.render("search",{data:data ,recommend:docs,title:_id,page:page,total:total,sort:sort})
      
       })
@@ -76,15 +72,10 @@ router.get("/zone/:id", async (req, res, next) => {
       data = docs
       Dorm.find({},{limit : 4,sort:{_id:-1}},(err,docs)=>{
         if(err) throw err;
-        console.log(page)
-        // res.send(docs)
         res.render("search",{data:data ,recommend:docs,title:_id,page:page,total:total,sort:sort})
-     
       })
     })
   }
-
-
 });
 
 
@@ -96,14 +87,12 @@ router.get("/find/:id", (req, res, next) => {
     if(err) throw err;
     data = docs
     Dorm.find({},{limit : 4},(err,docs)=>{
-      console.log(data)
       if(err) throw err;
       res.render("information",{data:data ,recommend:docs,title:data.zone})
-   
     })
   })
-
 });
+
 router.get("/search", async (req,res)=>{
   var id = req.query.search
   let sort = "1"
@@ -116,9 +105,7 @@ router.get("/search", async (req,res)=>{
   const limit = 4;
   const page = parseInt(req.query.page) - 1 || 0;
   const count = await Dorm.count(query,{sort:{_id:1}})
-  console.log(count)
   const total = Math.round(count/4)
- 
   await Dorm.find({},{limit : 4,sort:{_id:1}},(err,docs)=>{
     if(err) throw err;
     data = docs

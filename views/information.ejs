@@ -173,7 +173,7 @@
                             <li class="list-group-item"><b>สถานศึกษา</b></li>
                             <div class="row">
                             <% data["nearbyPlaces"]["Place"].forEach(item=>{ %>
-                                <% if (item.type=="study"){ %>
+                                <% if (item.type=="study" && item.name!="ชื่อ"){ %>
                                 <div class="col-lg-6 ps-5">
                                     <a style="color:#d9534f;" href="https://www.google.com/maps/dir/<%=data.name%>/<%=item.name%>" target="_blank"><%=item.name %> </a>
                                     <p><i class="fa-sharp fa-solid fa-person-walking"> </i> ห่างประมาณ <%=item.distance%></p>
@@ -184,7 +184,7 @@
                             <li class="list-group-item"><b>ถนน/ซอยใกล้เคียง</b></li>
                             <div class="row">
                                 <% data["nearbyPlaces"]["Place"].forEach(item=>{ %>
-                                    <% if (item.type=="road"){ %>
+                                    <% if (item.type=="road" && item.name!="ชื่อ"){ %>
                                     <div class="col-lg-6 ps-5">
                                         <a style="color:#d9534f;" href="https://www.google.com/maps/dir/<%=data.name%>/<%=item.name%>" target="_blank"><%=item.name %> </a>
                                         <p><i class="fa-sharp fa-solid fa-person-walking"> </i> ห่างประมาณ <%=item.distance%></p>
@@ -195,7 +195,8 @@
                             <li class="list-group-item"><b>ร้านค้า/ห้างสรรพสินค้า</b></li>
                             <div class="row">
                                 <% data["nearbyPlaces"]["Place"].forEach(item=>{ %>
-                                    <% if (item.type=="store"){ %>
+                                    <% if (item.type=="store" && item.name!="ชื่อ"){ %>
+                                        
                                     <div class="col-lg-6 ps-5">
                           
                                         <a style="color:#d9534f;" href="https://www.google.com/maps/dir/<%=data.name%>/<%=item.name%>" target="_blank"><%=item.name %> </a>
