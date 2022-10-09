@@ -11,7 +11,14 @@
   <script src="https://kit.fontawesome.com/6484fc6e0a.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/stylesheets/dorm.css" />
   <link rel="icon" href="/image/logobrand.png" type="image/x-icon" sizes="30x30">
-
+<style>
+  @media screen and (max-width:576px) {
+    .logo{
+      width: 20px;
+    }
+    
+  }
+</style>
 </head>
 
 <body>
@@ -20,7 +27,8 @@
       <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color: #eb6e44;">
         <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
           <a href="/admin" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <h1 class=" d-none d-sm-inline"><span style="color:#000000">Dorm</span>itory</h1>
+            <!-- <h1 class=" d-none d-sm-inline"><span style="color:#000000">Dorm</span>itory</h1> -->
+            <img src="/image/logobrand.png" alt="logo" width="150px" class="logo" >
           </a>
           <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li class="nav-item">
@@ -42,7 +50,7 @@
           <div>
             <h3>รายละเอียดหอพัก</h3>
             <a class="btn btn-success" href="/admin/insert">เพิ่มข้อมูลหอพัก <i class="bi bi-plus-circle-fill text-warning" ></i></a><br>
-            <form class="d-flex mt-4" role="search" action="/dorm/search">
+            <form class="d-flex mt-4" role="search" action="/admin">
               <input
                 class="form-control me-2"
                 type="search"

@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="">
                         <h3 class="alert alert-success" style="width:100%;">แก้ไขข้อมูลหอพัก</h3>
-                        <form method="POST" action="/admin/update" class="form-control" enctype="multipart/form-data">
+                        <form method="POST" action="/admin/update" class="form-control" >
                             <input type="hidden" value="<%= data._id %>" name="update_id">
                             <div class="row">
                                 <div class="col-xl-6">
@@ -114,7 +114,7 @@
                                     </div>
                                     <div class="row mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">สิ่งอำนวยความสะดวกในห้อง</label>
-                                        <% if(data.facilities.private[0].hasornot="has"){ %>
+                                        <% if(data.facilities.private[0].hasornot=="has"){ %>
                                         <div class="col-xl-3">
                                             <input class="form-check-input" type="checkbox" name="air" value="air" id="flexCheckDefault" checked>
                                             แอร์
@@ -126,90 +126,244 @@
                                             </div>
                                         <% } %>
                                         <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.facilities.private[1].hasornot=="has"){ %>
                                         <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="elevator" value="elevator" id="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" name="elevator" value="elevator" id="flexCheckDefault" checked>
                                             ลิฟต์
                                         </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="elevator" value="elevator" id="flexCheckDefault">
+                                                ลิฟต์
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.facilities.private[2].hasornot=="has"){ %>
                                         <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="wifi" value="wifi" id="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" name="wifi" value="wifi" id="flexCheckDefault" checked>
                                             Wifi
                                         </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="tv" value="tv" id="flexCheckDefault">
-                                            มี TV
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="water_heater" value="water_heater" id="flexCheckDefault">
-                                            เครื่องทำน้ำอุ่น
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="keycard" value="keycard" id="flexCheckDefault">
-                                            คีย์การ์ด
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="fan" value="fan" id="flexCheckDefault">
-                                            พัดลม
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="wardrobe" value="wardrobe" id="flexCheckDefault">
-                                            ตู้เสื้อผ้า
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="single_bed" value="single_bed" id="flexCheckDefault">
-                                            เตียงเดี่ยว
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="double_bed" value="double_bed" id="flexCheckDefault">
-                                            เตียงคู่
-                                        </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="wifi" value="wifi" id="flexCheckDefault">
+                                                Wifi
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.facilities.private[3].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="tv" value="tv" id="flexCheckDefault"checked>
+                                                มี TV
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="tv" value="tv" id="flexCheckDefault">
+                                                มี TV
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.facilities.private[4].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="water_heater" value="water_heater" id="flexCheckDefault" checked>
+                                                เครื่องทำน้ำอุ่น
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="water_heater" value="water_heater" id="flexCheckDefault">
+                                                เครื่องทำน้ำอุ่น
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.facilities.private[5].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="keycard" value="keycard" id="flexCheckDefault" checked>
+                                                คีย์การ์ด
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="keycard" value="keycard" id="flexCheckDefault">
+                                                คีย์การ์ด
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.facilities.private[6].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="fan" value="fan" id="flexCheckDefault" checked>
+                                                พัดลม
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="fan" value="fan" id="flexCheckDefault">
+                                                พัดลม
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.facilities.private[7].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="wardrobe" value="wardrobe" id="flexCheckDefault"checked>
+                                                ตู้เสื้อผ้า
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="wardrobe" value="wardrobe" id="flexCheckDefault">
+                                                ตู้เสื้อผ้า
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.facilities.private[8].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="single_bed" value="single_bed" id="flexCheckDefault" checked>
+                                                เตียงเดี่ยว
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="single_bed" value="single_bed" id="flexCheckDefault">
+                                                เตียงเดี่ยว
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.facilities.private[9].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="double_bed" value="double_bed" id="flexCheckDefault" checked>
+                                                เตียงคู่
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="double_bed" value="double_bed" id="flexCheckDefault">
+                                                เตียงคู่
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+
+
                                     </div>
                                     <div class="row mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">สิ่งอำนวยความสะดวกส่วนกลาง</label>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="parking" value="parking" id="flexCheckDefault">
-                                            ที่จอดรถ
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="gym" value="gym" id="flexCheckDefault">
-                                            โรงยิม/ฟิตเนส
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="cctv" value="cctv" id="flexCheckDefault">
-                                            กล้องวงจรปิด
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="public_wifi" value="public_wifi" id="flexCheckDefault">
-                                            Wifi ส่วนกลาง
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="laundry" value="laundry" id="flexCheckDefault">
-                                            ร้านซัก-รีดักผ้า
-                                        </div>
-                            
+                                        <% if(data.facilities.public[0].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="parking" value="parking" id="flexCheckDefault"checked>
+                                                ที่จอดรถ
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="parking" value="parking" id="flexCheckDefault">
+                                                ที่จอดรถ
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.facilities.public[1].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="gym" value="gym" id="flexCheckDefault"checked>
+                                                โรงยิม/ฟิตเนส
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="gym" value="gym" id="flexCheckDefault">
+                                                โรงยิม/ฟิตเนส
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.facilities.public[2].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="cctv" value="cctv" id="flexCheckDefault" checked>
+                                                กล้องวงจรปิด
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="cctv" value="cctv" id="flexCheckDefault">
+                                                กล้องวงจรปิด
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.facilities.public[3].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="public_wifi" value="public_wifi" id="flexCheckDefault" checked>
+                                                Wifi ส่วนกลาง
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="public_wifi" value="public_wifi" id="flexCheckDefault">
+                                                Wifi ส่วนกลาง
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.facilities.public[4].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="laundry" value="laundry" id="flexCheckDefault" checked>
+                                                ร้านซัก-รีดักผ้า
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="laundry" value="laundry" id="flexCheckDefault">
+                                                ร้านซัก-รีดักผ้า
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                    
                                     </div>
                                     <div class="row mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">กฏหอพัก</label>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="pet" value="pet" id="flexCheckDefault">
-                                            ห้ามเลี้ยงสัตว์
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="smoking" value="smoking" id="flexCheckDefault">
-                                            ห้ามสูบบูหรี่
-                                        </div>
-                                  
-                            
+                                        <% if(data.rules[0].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="pet" value="pet" id="flexCheckDefault" >
+                                                ห้ามเลี้ยงสัตว์
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="pet" value="pet" id="flexCheckDefault" checked>
+                                                ห้ามเลี้ยงสัตว์
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        <% if(data.rules[1].hasornot=="has"){ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="smoking" value="smoking" id="flexCheckDefault" checked>
+                                                ห้ามสูบบูหรี่
+                                            </div>
+                                        <% }else{ %>
+                                            <div class="col-xl-3">
+                                                <input class="form-check-input" type="checkbox" name="smoking" value="smoking" id="flexCheckDefault" checked>
+                                                ห้ามสูบบูหรี่
+                                            </div>
+                                        <% } %>
+                                        <!-- ------------------------------------------------------------------------------ -->
+                                        
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-xl-12 mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">โซนหอพัก</label>
                                             <select class="form-select" name="zone" aria-label="Default select example" required>
-                                                <option value="" disabled selected>เลือกโซนหอพัก</option>
-                                                <option value="หลังมอ">หลังมอ</option>
-                                                <option value="กังสดาล">กังสดาล</option>
-                                                <option value="โคลัมโบ">โคลัมโบ</option>
-                                                <option value="เมือง">เมือง</option>
-                                                <option value="โน่นม่วง">โน่นม่วง</option>
+                                                <% if(data.zone=="หลังมอ"){ %>
+                                                    <option value="หลังมอ"  selected>หลังมอ</option>
+                                                <% }else{ %>
+                                                    <option value="หลังมอ">หลังมอ</option>
+                                                <% } %>
+                                                <!-- ------------------------------------------------------------------------------ -->
+                                                <% if(data.zone=="กังสดาล"){ %>
+                                                    <option value="กังสดาล"  selected>กังสดาล</option>
+                                                <% }else{ %>
+                                                    <option value="กังสดาล">กังสดาล</option>
+                                                <% } %>
+                                                <!-- ------------------------------------------------------------------------------ -->
+                                                <% if(data.zone=="โคลัมโบ"){ %>
+                                                    <option value="โคลัมโบ"  selected>โคลัมโบ</option>
+                                                <% }else{ %>
+                                                    <option value="โคลัมโบ">โคลัมโบ</option>
+                                                <% } %>
+                                                <!-- ------------------------------------------------------------------------------ -->
+                                                <% if(data.zone=="เมือง"){ %>
+                                                    <option value="เมือง"  selected>เมือง</option>
+                                                <% }else{ %>
+                                                    <option value="เมือง">เมือง</option>
+                                                <% } %>
+                                                <!-- ------------------------------------------------------------------------------ -->
+                                                <% if(data.zone=="โน่นม่วง"){ %>
+                                                    <option value="โน่นม่วง"  selected>โน่นม่วง</option>
+                                                <% }else{ %>
+                                                    <option value="โน่นม่วง">โน่นม่วง</option>
+                                                <% } %>
+                                                <!-- ------------------------------------------------------------------------------ -->
+                                            
                                             </select>
                                         </div>
                                         <div class="col-xl-12 mb-3">
@@ -255,99 +409,140 @@
                                         <div class="col-xl-12">
                                             <label for="exampleFormControlInput1" class="form-label">รูปแบบสัญญา</label>
                                         </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="three_month" value="3 เดือน" id="flexCheckDefault">
-                                            3 เดือน
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="six_month" value="6 เดือน" id="flexCheckDefault">
-                                            6 เดือน
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <input class="form-check-input" type="checkbox" name="one_year" value="1 ปี" id="flexCheckDefault">
-                                            1 ปี
-                                        </div>
+                                        <% contract.forEach(arr=>{ %>
+                                            <% if(arr=="3 เดือน") { %>
+                                                <div class="col-xl-3">
+                                                    <input class="form-check-input" type="checkbox" name="three_month" value="3 เดือน" id="flexCheckDefault" checked>
+                                                    3 เดือน
+                                                </div>
+                                          
+                                             <%}else if(arr=="6 เดือน") { %>
+                                                <div class="col-xl-3">
+                                                    <input class="form-check-input" type="checkbox" name="six_month" value="6 เดือน" id="flexCheckDefault" checked>
+                                                    6 เดือน
+                                                </div>
+                                          
+                                             <% }else if(arr=="1 ปี") { %>
+                                                <div class="col-xl-3">
+                                                    <input class="form-check-input" type="checkbox" name="one_year" value="1 ปี" id="flexCheckDefault" checked>
+                                                    1 ปี
+                                                </div>
+                                             <% } %>
+                                        <% }) %>
+                                        <% contacts_nothas.forEach(arr=>{ %>
+                                            <% if(arr=="3 เดือน") { %>
+                                                <div class="col-xl-3">
+                                                    <input class="form-check-input" type="checkbox" name="three_month" value="3 เดือน" id="flexCheckDefault" >
+                                                    3 เดือน
+                                                </div>
+                                          
+                                             <%}else if(arr=="6 เดือน") { %>
+                                                <div class="col-xl-3">
+                                                    <input class="form-check-input" type="checkbox" name="six_month" value="6 เดือน" id="flexCheckDefault" >
+                                                    6 เดือน
+                                                </div>
+                                          
+                                             <% }else if(arr=="1 ปี") { %>
+                                                <div class="col-xl-3">
+                                                    <input class="form-check-input" type="checkbox" name="one_year" value="1 ปี" id="flexCheckDefault" >
+                                                    1 ปี
+                                                </div>
+                                             <% } %>
+                                        <% }) %>
+                                      
+                                      
+                                    
+                                
+                                       
+                                   
                                     </div>
                                     <div class="row mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">สถานศึกษาใกล้เคียง (ตัวอย่าง 500 เมตร หรือ 1.2 กม.)</label>
+                
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_edu_name1" id="exampleFormControlInput1"
-                                            placeholder="ชื่อ">
+                                            placeholder="ชื่อ" value="<%=study[0].name %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_edu_distance1" id="exampleFormControlInput1"
-                                            placeholder="ระยะทาง">
+                                            placeholder="ระยะทาง" value="<%=study[0].distance %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_edu_name2" id="exampleFormControlInput1"
-                                            placeholder="ชื่อ">
+                                            placeholder="ชื่อ" value="<%=study[1].name %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_edu_distance2" id="exampleFormControlInput1"
-                                            placeholder="ระยะทาง">
+                                            placeholder="ระยะทาง" value="<%=study[1].distance %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_edu_name3" id="exampleFormControlInput1"
-                                            placeholder="ชื่อ">
+                                            placeholder="ชื่อ" value="<%=study[2].name %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_edu_distance3" id="exampleFormControlInput1"
-                                            placeholder="ระยะทาง">
+                                            placeholder="ระยะทาง" value="<%=study[2].distance %>">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">ถนนใกล้เคียง</label>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_road_name1" id="exampleFormControlInput1"
-                                            placeholder="ชื่อ">
+                                            placeholder="ชื่อ" value="<%=road[0].name %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_road_distance1" id="exampleFormControlInput1"
-                                            placeholder="ระยะทาง">
+                                            placeholder="ระยะทาง" value="<%=road[0].distance %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_road_name2" id="exampleFormControlInput1"
-                                            placeholder="ชื่อ">
+                                            placeholder="ชื่อ" value="<%=road[1].name %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_road_distance2" id="exampleFormControlInput1"
-                                            placeholder="ระยะทาง">
+                                            placeholder="ระยะทาง" value="<%=road[1].distance %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_road_name3" id="exampleFormControlInput1"
-                                            placeholder="ชื่อ">
+                                            placeholder="ชื่อ" value="<%=road[2].name %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_road_distance3" id="exampleFormControlInput1"
-                                            placeholder="ระยะทาง">
+                                            placeholder="ระยะทาง" value="<%=road[2].distance %>">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">ร้านสะดวกซื้อ/ห้งสรรพสินค้าใกล้เคียง</label>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_store_name1" id="exampleFormControlInput1"
-                                            placeholder="ชื่อ">
+                                            placeholder="ชื่อ"value="<%=store[0].name %>"> 
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_store_distance1" id="exampleFormControlInput1"
-                                            placeholder="ระยะทาง">
+                                            placeholder="ระยะทาง" value="<%=store[0].distance %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_store_name2" id="exampleFormControlInput1"
-                                            placeholder="ชื่อ">
+                                            placeholder="ชื่อ" value="<%=store[1].name %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_store_distance2" id="exampleFormControlInput1"
-                                            placeholder="ระยะทาง">
+                                            placeholder="ระยะทาง" value="<%=store[1].distance %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_store_name3" id="exampleFormControlInput1"
-                                            placeholder="ชื่อ">
+                                            placeholder="ชื่อ" value="<%=store[2].name %>">
                                         </div>
                                         <div class="col-xl-6 mb-3">
                                             <input type="text" class="form-control" name="nearby_store_distance3" id="exampleFormControlInput1"
-                                            placeholder="ระยะทาง">
+                                            placeholder="ระยะทาง" value="<%=store[2].distance %>">
                                         </div>
+                                                  
+                                    <!-- <div class="mb-3">
+                                        <label for="formFile" class="form-label">อัปโหลดไฟล์ (.png)</label>
+                                      
+                                        <input class="form-control" type="file" name="image" id="formFile" required multiple value="/image/<%=data.images.img[0] %>">
+                                    </div> -->
                                     </div>
                                 </div>
                             </div>
