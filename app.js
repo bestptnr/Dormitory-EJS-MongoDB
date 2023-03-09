@@ -28,9 +28,7 @@ app.use('/admin',adminRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-// mongoose.connect('mongodb+srv://admin:zz12345@cluster0.wv76mfw.mongodb.net/XML?retryWrites=true&w=majority')
-// .then(()=>console.log("Pass"))
-// error handler
+
 app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

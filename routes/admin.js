@@ -64,9 +64,11 @@ router.get("/insert", async (req, res) => {
 });
 
 router.post("/add_data", upload.array("image", 4), function (req, res, next) {
+
   let arrFile = [];
   for (i in req.files) {
     arrFile.push(req.files[i].filename);
+    console.log(req.files[i])
   }
 
   var air = req.body.air;

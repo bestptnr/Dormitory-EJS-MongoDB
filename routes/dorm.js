@@ -32,7 +32,7 @@ router.get("/all", async (req, res, next) => {
     await Dorm.find({},{limit : 4,skip:page*limit,sort:{_id:-1}}, (err,docs)=>{
       if(err) throw err;
       res.render("dorm.ejs",{data:docs,title:"all",page:page,total:total,sort:sort})
-   
+
     })
   }
 });
