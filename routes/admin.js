@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const monk = require("monk");
 const url =
-  "mongodb+srv://admin:zz12345@cluster0.wv76mfw.mongodb.net/XML?retryWrites=true&w=majority";
+  "mongodb+srv://";
 const db = monk(url);
 let Dorm = db.get("projectxmls");
 
